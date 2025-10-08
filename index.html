@@ -185,7 +185,7 @@
 			<div class="col-md-7">
 				<article class="form-detached">
 					<form id="contact-form" action="https://formspree.io/f/xnngbzqb" method="POST">
-						<div id="form-status"></div> <!-- 显示提示信息 -->
+						<div id="form-status"></div> <!-- Displaying Prompt -->
 
 						<div class="form-group">
 							<input type="text" name="name" class="form-control" placeholder="Name" required>
@@ -199,7 +199,7 @@
 							<textarea name="message" class="form-control" placeholder="Enter your message..." rows="6" required></textarea>
 						</div>
 
-						<!-- 🛡️ Honeypot 防垃圾 -->
+						<!-- 🛡️ Honeypot  Anti-Spam -->
 						<div style="display:none;">
 							<input type="text" name="_gotcha" tabindex="-1" autocomplete="off">
 						</div>
@@ -216,14 +216,14 @@
 
 						form.addEventListener("submit", async function (e) {
 							e.preventDefault();
-							status.innerHTML = "<p style='color:blue;'>⏳ 正在提交，请稍候...</p>";
+							status.innerHTML = "<p style='color:blue;'>⏳ Submitting, please wait...</p>";
 
 							let data = new FormData(form);
 
   // Cloudflare Turnstile token
 							let token = document.querySelector('input[name="cf-turnstile-response"]')?.value;
 							if (!token) {
-								status.innerHTML = "<p style='color:red;'>⚠️ 请先通过验证。</p>";
+								status.innerHTML = "<p style='color:red;'>⚠️ Please complete the verification first.</p>";
 								return;
 							}
 							data.append("cf-turnstile-response", token);
@@ -236,14 +236,14 @@
 								});
 
 								if (response.ok) {
-									status.innerHTML = "<p style='color:green;'>✅ 提交成功，我们会尽快联系您！</p>";
+									status.innerHTML = "<p style='color:green;'>✅ Submission successful! We will contact you shortly.</p>";
 									form.reset();
-      turnstile.reset(); // 🔄 重置验证框
+      turnstile.reset(); // 🔄 Reset Verification
   } else {
-  	status.innerHTML = "<p style='color:red;'>❌ 提交失败，请稍后再试。</p>";
+  	status.innerHTML = "<p style='color:red;'>❌ Submission failed. Please try again later.</p>";
   }
 } catch (error) {
-	status.innerHTML = "<p style='color:red;'>⚠️ 网络错误，请检查连接。</p>";
+	status.innerHTML = "<p style='color:red;'>⚠️ Network error. Please check your connection.</p>";
 }
 });
 </script>
@@ -329,6 +329,7 @@
 
 </body>
 </html>
+
 
 
 
